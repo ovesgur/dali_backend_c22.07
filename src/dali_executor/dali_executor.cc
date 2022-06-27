@@ -25,6 +25,10 @@
 
 namespace triton { namespace backend { namespace dali {
 
+DaliExecutor::DaliExecutor(DaliPipeline pipeline) :
+  pipeline_(std::move(pipeline)),
+  thread_pool_(GetNumThreads(), pipeline_.DeviceId(), false, "[DALI backend][Executor ThreadPool]") {}
+
 void DaliExecutor::SetupInputs(const std::vector<IDescr>& inputs) {
   assert(!inputs.empty());
   int batch_size = inputs[0].meta.shape.num_samples();

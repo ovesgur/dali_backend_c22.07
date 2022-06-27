@@ -43,8 +43,7 @@ struct OutputInfo {
 
 class DaliExecutor {
  public:
-  DaliExecutor(DaliPipeline pipeline) :
-      pipeline_(std::move(pipeline)), thread_pool_(GetNumThreads(), pipeline_.DeviceId(), false) {}
+  DaliExecutor(DaliPipeline pipeline);
 
   /**
    * @brief Run DALI pipeline.
