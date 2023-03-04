@@ -34,14 +34,14 @@ message(STATUS "Build configuration: " ${CMAKE_BUILD_TYPE})
 # Must include options required for this project as well as any
 # projects included in this one by FetchContent.
 #
-option(TRITON_DALI_SKIP_DOWNLOAD "Don't download DALI. Use the version provided in the system" OFF)
+option(TRITON_DALI_SKIP_DOWNLOAD "Don't download DALI. Use the version provided in the system" ON)
 option(TRITON_ENABLE_GPU "Enable GPU support in backend" ON)
 option(TRITON_ENABLE_STATS "Include statistics collections in backend" ON)
 option(WERROR "Trigger error on warnings" OFF)
 
 # Don't update the TRITON_BACKEND_API_VERSION unless necessary.
 # We want to use as-old-as-possible version.
-set(TRITON_BACKEND_API_VERSION "r21.05" CACHE STRING "Triton backend API tag")
+set(TRITON_BACKEND_API_VERSION "r22.07" CACHE STRING "Triton backend API tag")
 set(TRITON_COMMON_REPO_TAG ${TRITON_BACKEND_API_VERSION} CACHE STRING "Tag for triton-inference-server/common repo")
 set(TRITON_CORE_REPO_TAG ${TRITON_BACKEND_API_VERSION} CACHE STRING "Tag for triton-inference-server/core repo")
 set(TRITON_BACKEND_REPO_TAG ${TRITON_BACKEND_API_VERSION} CACHE STRING "Tag for triton-inference-server/backend repo")
